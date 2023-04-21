@@ -22,8 +22,8 @@ const inputReducer = (state, action) => {
 };
 const Input = (props) => {
     const [inputState, dispatch] = useReducer(inputReducer, {
-        value: "",
-        isValid: false,
+        value: props.initialValue || "",
+        isValid: props.initialValid || false,
         isTouched: false,
     });
 
@@ -56,7 +56,7 @@ const Input = (props) => {
                 placeholder={props.placeholder}
                 onChange={changeHandler}
                 onBlur={touchHandler}
-                value={inputState.val}
+                value={inputState.value}
             />
         ) : (
             <textarea
@@ -64,7 +64,7 @@ const Input = (props) => {
                 rows={props.row || 3}
                 onChange={changeHandler}
                 onBlur={touchHandler}
-                value={inputState.val}
+                value={inputState.value}
             />
         );
 

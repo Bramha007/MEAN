@@ -5,11 +5,12 @@ import {
     Redirect,
     Switch,
 } from "react-router-dom";
+
 import NewPlace from "./places/pages/NewPlace";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import UserPlaces from "./places/pages/UserPlaces";
-
 import Users from "./users/pages/Users";
+import UpdatePlace from "./places/pages/UpdatePlace";
 
 const App = () => {
     return (
@@ -25,6 +26,9 @@ const App = () => {
                     </Route>
                     <Route path="/places/new" exact>
                         <NewPlace />
+                    </Route>
+                    <Route path="/places/:placeId">
+                        <UpdatePlace />
                     </Route>
                     <Redirect to="/" />
                 </Switch>
