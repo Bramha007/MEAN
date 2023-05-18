@@ -1,1 +1,7 @@
-GET http://localhost:5000/api/v1/bootcamps/
+POST http://localhost:5000/api/v1/auth/forgotpassword
+
+Content-Type: "application/json"
+
+{
+    "email" : "demo@demo.com"
+}

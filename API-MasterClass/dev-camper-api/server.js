@@ -15,6 +15,7 @@ dbConnect(); //connect to database
 const bootcampRoutes = require("./routes/bootcamp-routes");
 const courseRoutes = require("./routes/course-routes");
 const authRoutes = require("./routes/auth-routes");
+const userRoutes = require("./routes/user-routes");
 
 const app = express();
 if (process.env.NODE_ENV === "development") app.use(morgan("dev")); // dev login middleware
@@ -31,7 +32,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/api/v1/bootcamps", bootcampRoutes);
 app.use("/api/v1/courses", courseRoutes);
-app.use("/api/v1/auth/", authRoutes);
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/users", userRoutes);
 
 app.use(errorHandler);
 
